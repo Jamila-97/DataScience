@@ -138,8 +138,8 @@ def get_labels(X, clusters):
     labels = []
     for x in X:
         # find in which cluster x is
-        for keys in list(clusters.keys())
-            if x in clusters[keys]
+        for keys in list(clusters.keys()):
+            if x in clusters[keys]:
                 labels += [keys]
                 break
     return labels
