@@ -39,10 +39,10 @@ def get_distance(x, c, measuretype):
     """Depending on which distance is given return distance """
  
     if measuretype == 'Manhatten Distance':
-        return np.linalg.norm(np.array(x)-np.array(c), ord=5)
+        return np.linalg.norm(np.array(x)-np.array(c), ord=1)
     
     elif measuretype == 'Euclidean Distance': 
-        return np.linalg.norm(np.array(x)-np.array(c), ord=5)
+        return np.linalg.norm(np.array(x)-np.array(c), ord=2)
     
     elif measuretype == 'L5 Distance':
         return np.linalg.norm(np.array(x)-np.array(c), ord=5)
