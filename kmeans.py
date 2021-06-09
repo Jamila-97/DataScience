@@ -19,29 +19,6 @@ def nummonths(month):
 def get_data(data, settype):
     
     X = pd.read_csv(data, header = 0)
-   
-    len_col = len(X.columns)
-    
-    if settype == 'Wholesale customers':
-        pass
-    elif settype == 'Heart failure clinical records':
-        pass
-    elif settype == 'Forest Fires' :
-        pass
-    elif settype == 'Wine':
-        X = pd.read_csv(data, header = None)
-        # maps class labels from chars to 1, 2, 3, ...
-        mapping = {'a':1}
-        l ='a'
-        for i in range(25):
-            l = chr(ord(l)+1) 
-            mapping.update({l: i+2})
-        X_class_col = X[len_col-1].map(mapping)
-        maxmin_scalar = preprocessing.MinMaxScaler().fit_transform(X.iloc[:, :len_col-2])
-        X = pd.DataFrame(maxmin_scalar)
-        print(X)
-   
-        X = pd.concat([X, X_class_col], axis=1).astype(float)
 
     print('The data FORMAT is shown as below\n')
     print(X.head())
@@ -71,8 +48,10 @@ def get_distance(x, c, measuretype):
         return np.linalg.norm(np.array(x)-np.array(c), ord=5)
     
     elif measuretype == 'Maximum Norm':
-        #still to do
-        pass
+        list_distance = []
+        for i in range(len(x)):
+            list_distance += [abs(x[i]-c[i])]
+        return max(list_distance)
 
 # return: dictionary of lists 
 def get_clusters(X, centroids, measuretype):
@@ -138,15 +117,8 @@ def kmeans(data, k, distance, output, settype):
             best_score = purity
             best_iteratoin = iteration
             
-    if settype == 'Wine':
-        mapping = {1:'a'}
-        label = 'a'
-        for i in range(25):
-            label = chr(ord(label)+1)
-            mapping.update({i+2: label})
-        
-    else: 
-        centroids = []
+
+    centroids = []
     for c in best_centroids:
         c = c.tolist()
         centroids.append(c)
