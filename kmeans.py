@@ -4,6 +4,7 @@ import pandas as pd
 import os
 from collections import Counter
 from sklearn import preprocessing
+from sklearn.metrics import davies_bouldin_score
 from collections import defaultdict
 
 
@@ -132,7 +133,18 @@ def kmeans(data, k, distance, output, settype):
             for pt in clusters[k]:
                 out.write('%s\n' % pt)
             out.write('\n\n\n\n')
-     
+
+def get_labels(X, clusters):
+    labels = []
+    for x in X:
+        # find in which cluster x is
+        #xcluster = 
+        # write in labels in which cluster x is
+        labels += [xcluster]
+    return labels
+
+def davis_bouldin(X, labels)
+    return sklearn.metrics.davies_bouldin_score(X, labels)
 
 dataset = input("Chose Dataset by number: \n 1. Wholesale customers, 2. Wine, 3. Forest Fires, 4. Heart failure clinical records \n")
 distance = input("Choose distancemeasure by number:\n 1. Manhatten Distance, 2.Euclidean Distance, 3.L5 Distance, 4.Maximum Norm \n")
