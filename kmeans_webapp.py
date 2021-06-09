@@ -49,8 +49,10 @@ def get_distance(x, c, measuretype):
         return np.linalg.norm(np.array(x)-np.array(c), ord=5)
     
     elif measuretype == 'Maximum Norm':
-        #still to do
-        pass
+        list_distance = []
+        for i in range(len(x)):
+            list_distance += [abs(x[i]-c[i])]
+        return max(list_distance)
 
 # return: dictionary of lists 
 def get_clusters(X, centroids, measuretype):
