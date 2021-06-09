@@ -138,9 +138,9 @@ def get_labels(X, clusters):
     labels = []
     for x in X:
         # find in which cluster x is
-        #xcluster = 
-        # write in labels in which cluster x is
-        labels += [xcluster]
+        for keys in list(clusters.keys())
+            if x in clusters[keys]
+                labels += [keys]      
     return labels
 
 def davis_bouldin(X, labels)
