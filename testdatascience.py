@@ -215,7 +215,7 @@ if st.button("Start"):
         kmeans(thedata,k,distancemeasure, 'forestfire.out', dataset)
     elif dataset == 'Heart failure clinical records':
         thedata = 'https://raw.githubusercontent.com/Chantalkle/DataScience/main/heart_failure.csv'
-        kmeans(thedata,k,distancemeasure, 'forestfire.out', dataset)
+        kmeans(thedata,k,distancemeasure, 'heart_failure.out', dataset)
 else: 
     st.write("Ready to calculate!")
     
