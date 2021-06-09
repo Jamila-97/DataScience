@@ -133,7 +133,8 @@ def kmeans(data, k, distance, output, settype):
             for pt in clusters[k]:
                 out.write('%s\n' % pt)
             out.write('\n\n\n\n')
-
+    get_labels(X, clusters)
+    
 def get_labels(X, clusters):
     labels = []
     for x in X:
@@ -142,9 +143,10 @@ def get_labels(X, clusters):
             if x in clusters[keys]:
                 labels += [keys]
                 break
+    print(labels)
     return labels
 
-def davis_bouldin(X, labels)
+def davis_bouldin(X, labels):
     return sklearn.metrics.davies_bouldin_score(X, labels)
 
 dataset = input("Chose Dataset by number: \n 1. Wholesale customers, 2. Wine, 3. Forest Fires, 4. Heart failure clinical records \n")
