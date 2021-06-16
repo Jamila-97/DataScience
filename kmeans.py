@@ -48,7 +48,7 @@ def get_distance(x, c, measuretype):
     elif measuretype == 'L5 Distance':
         return np.linalg.norm(np.array(x)-np.array(c), ord=5)
     
-    elif measuretype == 'Maximum Norm':
+    elif measuretype == 'Maximum Distance':
         list_distance = []
         for i in range(len(x)):
             list_distance += [abs(x[i]-c[i])]
@@ -149,7 +149,7 @@ def davis_bouldin(X, labels):
     return sklearn.metrics.davies_bouldin_score(X, labels)
 
 dataset = input("Chose Dataset by number: \n 1. Wholesale customers, 2. Wine, 3. Forest Fires, 4. Heart failure clinical records \n")
-distance = input("Choose distancemeasure by number:\n 1. Manhatten Distance, 2.Euclidean Distance, 3.L5 Distance, 4.Maximum Norm \n")
+distance = input("Choose distancemeasure by number:\n 1. Manhatten Distance, 2.Euclidean Distance, 3.L5 Distance, 4.Maximum Distance \n")
 k = input("Choose k \n")
 
 if distance == '1':
@@ -159,7 +159,7 @@ elif distance == '2':
 elif distance == '3':
     distancemeasure = 'L5 Distance'
 elif distance == '4':
-    distancemeasure = 'Maximum Norm'
+    distancemeasure = 'Maximum Distance'
     
 if dataset == '1':
     dataset = 'Wholesale customers'
